@@ -1,5 +1,4 @@
-// content-script.js - PWgen's module
-// author: ThunderK
+// content-script.js - HashLock module
 
 // This file is executed on the page content
 

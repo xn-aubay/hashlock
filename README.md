@@ -38,5 +38,5 @@ All you have to remember is the password you typed after the dash sign, and alwa
 Sources
 -------
 
-Sources can be found, reviewed, or contributed to, on [GitHub](https://github.com/thunderk/hashlock) or [BitBucket](https://github.com/thunderk/hashlock).
+Sources can be found, reviewed, or contributed to, on [GitHub](https://github.com/thunderk/hashlock) or [BitBucket](https://bitbucket.com/thunderk/hashlock).
 

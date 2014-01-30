@@ -1,5 +1,5 @@
 {
-    "license": "",
+    "license": "MPL 2.0",
     "preferences": [
         {
             "title": "Private key",
@@ -17,13 +17,14 @@
         }
     ],
     "contributors": [],
-    "author": "Michael Lemaire <michael@thunderk.net>",
+    "author": "Michael Lemaire (http://www.thunderk.net/)",
     "url": "https://bitbucket.com/thunderk/hashlock",
     "name": "hashlock",
     "dependencies": ["api-utils", "addon-kit"],
     "version": "0.2",
     "lib": "lib",
     "fullName": "HashLock",
+    "icon": "data/images/hashlock.png",
     "main": "main",
     "id": "jid0-gqoKMIjfIXXYzQ2FXRhBZ24AxEo",
     "description": "This addon generates a unique secure password for each website, from a central password."
