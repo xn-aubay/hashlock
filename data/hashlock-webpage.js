@@ -7,6 +7,6 @@ $(function(){
     // Manage every password input
     $('input[type="password"]').each(function(){
         var input = $(this);
-        pwgenBindToInput(input);
+        hashlockBindToInput(input);
     });
 });

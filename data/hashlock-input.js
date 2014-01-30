@@ -1,12 +1,12 @@
 // Input management
 
-function pwgenBindToInput(input){
+function hashlockBindToInput(input){
 
     var hashed = false;
     var maxlength = input.attr("maxlength");
     var old_background = input.css('backgroundColor');
     
-    if (input.hasClass("nopasshash") || input.hasClass("nopwgen")) {
+    if (input.hasClass("nopasshash") || input.hasClass("nopwgen") || input.hasClass("nohashlock")) {
         return;
     }
 
@@ -26,7 +26,7 @@ function pwgenBindToInput(input){
         var value = input.val();
         if (value.length > 0) {
             if (value[0] == '#') {
-                input.val(pwgenHashPassword(value.substring(1)));
+                input.val(hashlockHashPassword(value.substring(1)));
                 hashed = true;
                 input.css('backgroundColor', '#D2D2D2');
             }

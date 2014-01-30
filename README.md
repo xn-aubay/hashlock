@@ -22,7 +22,7 @@ The private key is added as en extended layer of security. The only downside of 
 Installation
 ------------
 
-If you're a [Mozilla Firefox](https://www.mozilla.org/firefox/) user, you can directly install this add-on from the [add-ons store](https://addons.mozilla.org/firefox/).
+**Important note : This add-on is currently in an beta stage, and is not yet available on the official [add-ons store](https://addons.mozilla.org/firefox/)** 
 
 If you're a developer, you can checkout the sources and use the [Firefox Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK) to run it, or build an xpi.
 

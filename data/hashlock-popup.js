@@ -8,6 +8,6 @@ $(function(){
     });
 
     // Setup the test area
-    pwgenBindToInput($("#inputTest"));
+    hashlockBindToInput($("#inputTest"));
 })
 

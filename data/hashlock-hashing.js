@@ -147,11 +147,11 @@ String.prototype.substringAfter = function (str) {
 var default_length = 8;
 var default_strength = 2;
 
-function pwgenHashPassword(password) {
-    var site = pwgen_current_config['site'];
+function hashlockHashPassword(password) {
+    var site = hashlock_current_config['site'];
 
     site = PassHashCommon.generateHashWord (
-        pwgen_current_config['key'],
+        hashlock_current_config['key'],
         site,
         24,
         true, // require digits
