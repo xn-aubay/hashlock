@@ -1,10 +1,10 @@
-Secure Passwords
-================
+HashLock - Secure passwords for Firefox
+=======================================
 
 About
 -----
 
-Secure Passwords is an add-on for the [Mozilla Firefox](https://www.mozilla.org/firefox/) web browser, allowing you to use a different password on each website.
+HashLock is an add-on for the [Mozilla Firefox](https://www.mozilla.org/firefox/) web browser, allowing you to use a different password on each website.
 
 Security
 --------
@@ -38,5 +38,5 @@ All you have to remember is the password you typed after the dash sign, and alwa
 Sources
 -------
 
-Sources can be found, reviewed, or contributed to, on [GitHub](https://github.com/thunderk/pwgen) or [BitBucket](https://github.com/thunderk/pwgen).
+Sources can be found, reviewed, or contributed to, on [GitHub](https://github.com/thunderk/hashlock) or [BitBucket](https://github.com/thunderk/hashlock).
 
