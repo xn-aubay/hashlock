@@ -17,12 +17,12 @@ This add-on helps by generating a unique password for you, on each website you v
 * A private key (only visible in the options page, you never have to type it)
 * A common password you have to type (it can be a trivial word like `banana` without security risk)
 
-The private key is added as en extended layer of security. The only downside of it is you have to keep it in a safe place, and you get to have it if you're not on your usual computer.
+The private key is added as an extra layer of security. The only downside of it is you have to keep it in a safe place, and you get to have it if you're not on your usual computer.
 
 Installation
 ------------
 
-**Important note : This add-on is currently in an beta stage, and is not yet available on the official [add-ons store](https://addons.mozilla.org/firefox/)** 
+**Important note : This add-on is currently in a beta stage, and is not yet available on the official [add-ons store](https://addons.mozilla.org/firefox/)** 
 
 If you're a developer, you can checkout the sources and use the [Firefox Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK) to run it, or build an xpi.
 
