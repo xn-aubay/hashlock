@@ -6,7 +6,7 @@
             "type": "string",
             "description": "A private key to use with all your passwords",
             "value": "",
-            "name": "key"
+            "name": "private_key"
         },
         {
             "title": "Password length",
@@ -21,11 +21,11 @@
     "url": "https://bitbucket.com/thunderk/hashlock",
     "name": "hashlock",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "0.2",
+    "version": "0.3",
     "lib": "lib",
     "fullName": "HashLock",
     "icon": "data/images/hashlock.png",
-    "main": "main",
+    "main": "main_firefox",
     "id": "jid0-gqoKMIjfIXXYzQ2FXRhBZ24AxEo",
     "description": "This addon generates a unique secure password for each website, from a central password."
 }
