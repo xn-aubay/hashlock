@@ -1,6 +1,8 @@
 HashLock - Secure passwords for Firefox
 =======================================
 
+[![Build Status](https://travis-ci.org/thunderk/hashlock.png)](https://travis-ci.org/thunderk/hashlock)
+
 About
 -----
 
