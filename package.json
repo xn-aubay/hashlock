@@ -1,4 +1,9 @@
 {
+    "name": "hashlock",
+    "fullName": "HashLock",
+    "version": "0.3.0",
+    "author": "Michael Lemaire (http://www.thunderk.net/)",
+    "contributors": [],
     "license": "MPL 2.0",
     "preferences": [
         {
@@ -16,14 +21,8 @@
             "name": "length"
         }
     ],
-    "contributors": [],
-    "author": "Michael Lemaire (http://www.thunderk.net/)",
     "url": "https://bitbucket.com/thunderk/hashlock",
-    "name": "hashlock",
-    "dependencies": ["api-utils", "addon-kit"],
-    "version": "0.3.0",
     "lib": "lib",
-    "fullName": "HashLock",
     "icon": "data/images/hashlock.png",
     "main": "main_firefox",
     "id": "jid0-gqoKMIjfIXXYzQ2FXRhBZ24AxEo",
