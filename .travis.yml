@@ -1,0 +1,7 @@
+language: node_js
+before_script:
+    - sh -e /etc/init.d/xvfb start
+    - git clone https://github.com/mozilla/addon-sdk
+env:
+    - DISPLAY=':99.0'
+script: addon-sdk/bin/cfx test
