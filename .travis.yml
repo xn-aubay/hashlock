@@ -4,4 +4,4 @@ before_script:
     - git clone https://github.com/mozilla/addon-sdk
 env:
     - DISPLAY=':99.0'
-script: addon-sdk/bin/cfx test
+script: /bin/sh -c 'cd addon-sdk; . bin/activate; cd ..; cfx test .'
