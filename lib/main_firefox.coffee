@@ -19,8 +19,8 @@ exports.main = ->
 
   # Config panel (popup)
   config_panel = Panel(
-    width: 400,
-    height: 200,
+    width: 500,
+    height: 350,
     contentURL: data.url('popup.html'),
     contentScriptFile: [
       data.url("jquery-2.1.0.min.js"),

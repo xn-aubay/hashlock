@@ -7,8 +7,12 @@ class window.HashLockAbstractHandler
     # TODO Monitor dynamically created inputs
     for item in jQuery('input[type="password"]')
       @bindToInput jQuery(item)
-    for item in jQuery('#hashLockConfig')
-       @bindConfig jQuery(item)
+
+    @configPanel = jQuery('#hashLockConfig')
+    for item in @configPanel
+      @bindConfig jQuery(item)
+
+    @sendOptionsRequest()
 
   # Asynchronous method to send hashRequest and receive hashResponse
   hashRequest: (password, callback) ->
@@ -18,12 +22,32 @@ class window.HashLockAbstractHandler
   optionsRequest: (options, callback) ->
     callback()
 
+  # Fill the config panel from a SiteOptions
+  fillConfigPanel: (options) ->
+    jQuery(".site_tag", @configPanel).text options.site_tag
+    jQuery(".private_key", @configPanel).val options.private_key
+    jQuery(".length", @configPanel).val options.length
+
+    if jQuery("#options_specific", @configPanel).prop("checked")
+      jQuery(".private_key", @configPanel).prop "disabled", false
+      jQuery(".length", @configPanel).prop "disabled", false
+    else
+      jQuery(".private_key", @configPanel).prop "disabled", true
+      jQuery(".length", @configPanel).prop "disabled", true
+
+  # Send an optionsRequest and process its result
+  sendOptionsRequest: (options) ->
+    @optionsRequest options, @fillConfigPanel
+
+  # Serialize options from the config panel
+  serializeOptions: ->
+    # TODO
+    {}
+
   # Apply the config panel
   bindConfig: (body) ->
-
-    # Toggle global/specific options
-    jQuery("#configChoice", body).change =>
-      @optionsRequest null, =>
+    jQuery("#options_global,#options_specific", body).click =>
+      @sendOptionsRequest @serializeOptions()
 
   # Bind to a jQuery selected input
   bindToInput: (input) ->

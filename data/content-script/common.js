@@ -10,11 +10,13 @@
         item = _ref[_i];
         this.bindToInput(jQuery(item));
       }
-      _ref1 = jQuery('#hashLockConfig');
+      this.configPanel = jQuery('#hashLockConfig');
+      _ref1 = this.configPanel;
       for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
         item = _ref1[_j];
         this.bindConfig(jQuery(item));
       }
+      this.sendOptionsRequest();
     }
 
     HashLockAbstractHandler.prototype.hashRequest = function(password, callback) {
@@ -25,10 +27,31 @@
       return callback();
     };
 
+    HashLockAbstractHandler.prototype.fillConfigPanel = function(options) {
+      jQuery(".site_tag", this.configPanel).text(options.site_tag);
+      jQuery(".private_key", this.configPanel).val(options.private_key);
+      jQuery(".length", this.configPanel).val(options.length);
+      if (jQuery("#options_specific", this.configPanel).prop("checked")) {
+        jQuery(".private_key", this.configPanel).prop("disabled", false);
+        return jQuery(".length", this.configPanel).prop("disabled", false);
+      } else {
+        jQuery(".private_key", this.configPanel).prop("disabled", true);
+        return jQuery(".length", this.configPanel).prop("disabled", true);
+      }
+    };
+
+    HashLockAbstractHandler.prototype.sendOptionsRequest = function(options) {
+      return this.optionsRequest(options, this.fillConfigPanel);
+    };
+
+    HashLockAbstractHandler.prototype.serializeOptions = function() {
+      return {};
+    };
+
     HashLockAbstractHandler.prototype.bindConfig = function(body) {
       var _this = this;
-      return jQuery("#configChoice", body).change(function() {
-        return _this.optionsRequest(null, function() {});
+      return jQuery("#options_global,#options_specific", body).click(function() {
+        return _this.sendOptionsRequest(_this.serializeOptions());
       });
     };
 

@@ -24,7 +24,6 @@
       var _this = this;
       self.port.emit("optionsRequest", options);
       return self.port.once("optionsResponse", function(response_options) {
-        console.log("Received response: " + response_options);
         return callback(response_options);
       });
     };

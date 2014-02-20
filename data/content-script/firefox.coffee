@@ -11,7 +11,7 @@ class HashLockFirefoxHandler extends HashLockAbstractHandler
   optionsRequest: (options, callback) ->
     self.port.emit "optionsRequest", options
     self.port.once "optionsResponse", (response_options) =>
-      console.log "Received response: #{response_options}"
+      #console.log "Received response: #{response_options}"
       callback response_options
 
 handler = new HashLockFirefoxHandler()
