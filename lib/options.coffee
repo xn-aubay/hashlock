@@ -32,6 +32,10 @@ class exports.SiteOptions
   # Generate a random private key
   @generatePrivateKey: generatePrivateKey
 
+  # Create a copy for a specific site
+  getCopy: (sitetag) ->
+    new SiteOptions(@private_key, @length, @char_mode, sitetag, 0)
+
   # Create a serializable object
   toDict: ->
     private_key: @private_key

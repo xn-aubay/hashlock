@@ -4,20 +4,32 @@
   window.HashLockAbstractHandler = (function() {
 
     function HashLockAbstractHandler() {
-      var input, _i, _len, _ref;
+      var item, _i, _j, _len, _len1, _ref, _ref1;
       _ref = jQuery('input[type="password"]');
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        input = _ref[_i];
-        this.bindToInput(jQuery(input));
+        item = _ref[_i];
+        this.bindToInput(jQuery(item));
+      }
+      _ref1 = jQuery('#hashLockConfig');
+      for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+        item = _ref1[_j];
+        this.bindConfig(jQuery(item));
       }
     }
 
-    HashLockAbstractHandler.prototype.hashPassword = function(password) {
-      return null;
+    HashLockAbstractHandler.prototype.hashRequest = function(password, callback) {
+      return callback();
     };
 
-    HashLockAbstractHandler.prototype.hashPasswordAsync = function(password, callback) {
-      return callback(this.hashPassword(password));
+    HashLockAbstractHandler.prototype.optionsRequest = function(options, callback) {
+      return callback();
+    };
+
+    HashLockAbstractHandler.prototype.bindConfig = function(body) {
+      var _this = this;
+      return jQuery("#configChoice", body).change(function() {
+        return _this.optionsRequest(null, function() {});
+      });
     };
 
     HashLockAbstractHandler.prototype.bindToInput = function(input) {
@@ -43,7 +55,7 @@
         var value;
         value = input.val();
         if (value.length > 0 && value[0] === '#') {
-          return _this.hashPasswordAsync(value.substring(1), function(hashed_password) {
+          return _this.hashRequest(value.substring(1), function(hashed_password) {
             if (hashed_password) {
               hashed = true;
               input.val(hashed_password);

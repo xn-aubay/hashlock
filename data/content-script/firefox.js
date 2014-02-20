@@ -12,12 +12,20 @@
       return HashLockFirefoxHandler.__super__.constructor.apply(this, arguments);
     }
 
-    HashLockFirefoxHandler.prototype.hashPasswordAsync = function(password, callback) {
+    HashLockFirefoxHandler.prototype.hashRequest = function(password, callback) {
       var _this = this;
       self.port.emit("hashRequest", password);
       return self.port.once("hashResponse", function(hashed_password) {
-        console.log("Received response: " + hashed_password);
         return callback(hashed_password);
+      });
+    };
+
+    HashLockFirefoxHandler.prototype.optionsRequest = function(options, callback) {
+      var _this = this;
+      self.port.emit("optionsRequest", options);
+      return self.port.once("optionsResponse", function(response_options) {
+        console.log("Received response: " + response_options);
+        return callback(response_options);
       });
     };
 

@@ -28,7 +28,7 @@ exports.main = ->
       data.url("content-script/firefox.js")
     ]
   )
-  worker.addPeer config_panel.port
+  worker.addPeer config_panel.port, true
 
   # Widget (icon)
   widget = new Widget(

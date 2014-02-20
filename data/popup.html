@@ -1,5 +1,5 @@
 <html>
- 
+
     <head>
         <meta charset="utf-8">
         <style type="text/css" media="all">
@@ -27,14 +27,25 @@
             }
         </style>
     </head>
-     
-    <body>
+
+    <body id="hashLockConfig">
         <div>
-            <h2>HashLock</h2>
-            
+            <h2><img src="images/hashlock.png" />HashLock</h2>
+
+            <div id="configChoice">
+                Configuration du site <span class="siteTag"></span> :
+                <input type="radio" name="configChoice" value="global">Global</input>
+                <input type="radio" name="configChoice" value="specific">Specific</input>
+            </option>
+
+            <div>
+                <p class="config_private_key"></p>
+                <p class="config_length"></p>
+            </div>
+
             <!--<h3>Global configuration</h3>
             <p><label for="inputKey">Private key : </label><input id="inputKey" type="password" /><button id="buttonCopyKey">Copy</button></p>
-            
+
             <h3>Site configuration</h3>
             <p><label for="inputSite">Site tag : </label><input id="inputSite" type="text" /><button id="buttonBump">Bump</button></p>-->
 

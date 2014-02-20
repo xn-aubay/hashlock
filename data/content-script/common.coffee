@@ -4,18 +4,26 @@
 class window.HashLockAbstractHandler
 
   constructor: ->
-    # Bind to all password inputs
     # TODO Monitor dynamically created inputs
-    for input in jQuery('input[type="password"]')
-      @bindToInput jQuery(input)
+    for item in jQuery('input[type="password"]')
+      @bindToInput jQuery(item)
+    for item in jQuery('#hashLockConfig')
+       @bindConfig jQuery(item)
 
-  # Synchronous method to override to hash a password
-  hashPassword: (password) ->
-    return null
+  # Asynchronous method to send hashRequest and receive hashResponse
+  hashRequest: (password, callback) ->
+    callback()
 
-  # Asynchronous method to override to hash a password
-  hashPasswordAsync: (password, callback) ->
-    callback(@hashPassword(password))
+  # Asynchronous method to send optionsRequest and receive optionsResponse
+  optionsRequest: (options, callback) ->
+    callback()
+
+  # Apply the config panel
+  bindConfig: (body) ->
+
+    # Toggle global/specific options
+    jQuery("#configChoice", body).change =>
+      @optionsRequest null, =>
 
   # Bind to a jQuery selected input
   bindToInput: (input) ->
@@ -38,7 +46,7 @@ class window.HashLockAbstractHandler
     input.blur =>
       value = input.val()
       if value.length > 0 and value[0] == '#'
-        @hashPasswordAsync value.substring(1), (hashed_password) =>
+        @hashRequest value.substring(1), (hashed_password) =>
           if hashed_password
             hashed = true
             input.val hashed_password

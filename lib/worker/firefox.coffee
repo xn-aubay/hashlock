@@ -28,10 +28,16 @@ class exports.HashLockFirefoxWorker extends HashLockAbstractWorker
         SimplePrefs.prefs[name] = value
 
   # Add a communication peer to receive hash requests and send responses
-  addPeer: (peer) ->
+  #  If *secure* is true, the worker will also respond to options requests
+  addPeer: (peer, secure=false) ->
     peer.on "hashRequest", (password) =>
-      result = @getHash password
+      result = @hashRequest(password)
       peer.emit 'hashResponse', result
+
+    if secure
+      peer.on "optionsRequest", (options) =>
+        result = @optionsRequest(options)
+        peer.emit "optionsResponse", result
 
   # Remove a communication peer
   removePeer: (peer) ->

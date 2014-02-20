@@ -2,12 +2,13 @@
 
 PasswordHasher = require('../hasher').PasswordHasher
 SiteOptions = require('../options').SiteOptions
+OptionsStore = require('../store').OptionsStore
 
 class exports.HashLockAbstractWorker
 
   constructor: ->
     @hasher = new PasswordHasher()
-    @default_options = @getDefaultOptions()
+    @store = new OptionsStore(@getDefaultOptions())
 
   # Method to override to initially retrieve the default options for new sites
   getDefaultOptions: -> new SiteOptions()
@@ -15,16 +16,21 @@ class exports.HashLockAbstractWorker
   # Method to override to return the current active webpage's URL
   getCurrentUrl: -> null
 
+  # Get the SiteOptions instance for a given site tag
   getSiteOptions: (site_tag) ->
-    # TODO Use a store for site-specific options
-    options_dict = @default_options.toDict()
-    options_dict['site_tag'] = site_tag
-    new SiteOptions.fromDict(options_dict)
+    @store.getOptions site_tag ? @stripSiteTag(@getCurrentUrl())
 
-  getHash: (base_password) ->
-    site_tag = @stripSiteTag @getCurrentUrl()
-    config = @getSiteOptions site_tag
-    return @hasher.getHash config, base_password
+  # Respond to a hashRequest
+  hashRequest: (base_password) ->
+    site_tag = @stripSiteTag(@getCurrentUrl())
+    config = @getSiteOptions()
+
+    @hasher.getHash config, base_password
+
+  # Respond to a optionsRequest
+  optionsRequest: (options) ->
+    # TODO
+    @getSiteOptions()
 
   # Get the site tag from a full URL
   stripSiteTag: (url) ->
