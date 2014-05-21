@@ -24,6 +24,8 @@ class window.HashLockAbstractHandler
 
   # Fill the config panel from a SiteOptions
   fillConfigPanel: (options) ->
+    #console.log "Options received", options
+
     jQuery(".site_tag", @configPanel).text options.site_tag
     jQuery(".private_key", @configPanel).val options.private_key
     jQuery(".length", @configPanel).val options.length

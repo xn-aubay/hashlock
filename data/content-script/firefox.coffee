@@ -2,6 +2,10 @@
 
 class HashLockFirefoxHandler extends HashLockAbstractHandler
 
+  constructor: () ->
+    self.port.on "refresh", =>
+      this.sendOptionsRequest()
+
   hashRequest: (password, callback) ->
     self.port.emit "hashRequest", password
     self.port.once "hashResponse", (hashed_password) =>

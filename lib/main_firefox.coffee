@@ -38,6 +38,12 @@ exports.main = ->
     panel: config_panel
   )
 
+  # Tab switching
+  tabs.on 'activate', ->
+    config_panel.port.emit "refresh"
+  tabs.on 'load', ->
+    config_panel.port.emit "refresh"
+
   # Page content script (peer on each tab)
   page_mod = PageMod(
     include: "*",

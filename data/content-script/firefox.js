@@ -9,7 +9,10 @@
     __extends(HashLockFirefoxHandler, _super);
 
     function HashLockFirefoxHandler() {
-      return HashLockFirefoxHandler.__super__.constructor.apply(this, arguments);
+      var _this = this;
+      self.port.on("refresh", function() {
+        return _this.sendOptionsRequest();
+      });
     }
 
     HashLockFirefoxHandler.prototype.hashRequest = function(password, callback) {
